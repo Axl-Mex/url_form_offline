@@ -51,12 +51,12 @@ $(document).ready(function() {
         type: "get",
         success: function(response, textStatus, jqXHR){
           $.each(response, function(index, value) {
-			  if($.inArray(value, collection_urls) == -1){
-                 url_domain = value.split('//');
-                if(url_domain.length > 1)
-                  d_url = url_domain[1].replace("www.","").split('/')[0];
-                else
-                  d_url = url_domain[0].replace("www.","").split('/')[0];
+              url_domain = value.split('//');
+              if(url_domain.length > 1)
+                d_url = url_domain[1].replace("www.","").split('/')[0];
+              else
+                d_url = url_domain[0].replace("www.","").split('/')[0];
+			  if($.inArray(d_url, collection_urls) == -1){
 				  collection_urls.push(d_url);
 				  $("ul").prepend("<li>"+ d_url +"</li>");
 			  }
