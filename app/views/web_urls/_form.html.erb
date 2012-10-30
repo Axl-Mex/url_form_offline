@@ -1,0 +1,43 @@
+
+<script>
+  var collection_urls = [];
+</script>
+
+<div id="sub">
+  <div class="center">
+    <div class="col signin">
+      <form method="post" id="new_user_session" class="new_user_session">
+        <div style="overflow: hidden; height: 0pt; width: 0pt;">
+          <input type="submit" value="Submit">
+        </div>
+        <fieldset>
+          <p>
+            <label for="user_session_email">URL:</label>
+            <input type="text" size="30" name="web_url_url" id="web_url_url" class="text">
+          </p>
+          <p>
+            <span id="error_message" class="error"></span>
+          </p>
+        </fieldset>
+        <fieldset class="border">
+          <p>
+            <a onclick="$(this).parents('form').submit(); return false;" class="button has_arrow green submit" href="#"><span class="inner">Add URL</span></a>
+          </p>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+
+<ul>
+  <% @web_urls.each do |web_url|%>
+   <li class="web_urls"><%= web_url.url_domain%></li>
+    <script>
+    collection_urls.push("<%=web_url.url_domain %>");
+    </script>
+  <% end %>
+</ul>
+
+
+
+
